@@ -26,9 +26,9 @@ window.CONFIG = {
   // Put your 3 photos in the "photos" folder with these names (or change the paths).
   // Until a file exists, a "click to add photo" placeholder is shown instead.
   photos: [
-    { src: "photos/photo1.jpg", caption: "Add a favourite trek photo here" },
-    { src: "photos/photo2.jpg", caption: "Add a summit or sunrise moment here" },
-    { src: "photos/photo3.jpg", caption: "Add a clinic or camp memory here" }
+    { src: "photos/photo1.jpg", caption: "" },
+    { src: "photos/photo2.jpg", caption: "" },
+    { src: "photos/photo3.jpg", caption: "" }
   ],
 
   taglines: [
