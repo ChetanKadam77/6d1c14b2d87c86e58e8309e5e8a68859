@@ -3,7 +3,7 @@
 // ============================================================
 window.CONFIG = {
   name: "Ms. Sayeeksha",                       // shown in the hero and page title ("Aarohi" also means "one who climbs")
-  role: "Pediatrician \u00B7 \u00B7 \u00B7 \u00B7 \u00B7 \u00B7 \u00B7 \u00B7 \u00B7 \u00B7 \u00B7 \u00B7 \u00B7 \u00B7 \u00B7 \u00B7 \u00B7 \u00B7 \u00B7 \u00B7 \u00B7 \u00B7 \u00B7 \u00B7 \u00B7 \u00B7 \u00B7 \u00B7 \u00B7 \u00B7 \u00B7 \u00B7 Mountain Soul",
+  role: "Pediatrician \u00B7 Mountain Soul",
   birthday: "2026-11-07",                   // her birthday, YYYY-MM-DD (only month/day matter for the countdown)
   age: 21,                                  // age she is turning (PLACEHOLDER)
 
