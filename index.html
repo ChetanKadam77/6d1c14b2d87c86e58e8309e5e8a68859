@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Happy Birthday, Dr. Aarohi!</title>
+  <meta name="description" content="A birthday page for a pediatrician who loves the mountains: wishes, a candle, lanterns, photos and a Himalaya quiz.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;1,9..144,500;1,9..144,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+  <canvas id="fx" aria-hidden="true"></canvas>
+  <div id="lanterns" aria-hidden="true"></div>
+
+  <!-- Customise -->
+  <button id="cfg-toggle" class="cfg-toggle" aria-expanded="false" aria-controls="cfg-panel" type="button">&#9881; Customise</button>
+  <aside id="cfg-panel" class="cfg-panel" hidden>
+    <h3>Personalise this page</h3>
+    <label>Her name
+      <input id="cfg-name" type="text" maxlength="30" placeholder="e.g. Dr. Aarohi">
+    </label>
+    <label>Turning (age)
+      <input id="cfg-age" type="number" min="1" max="120" placeholder="e.g. 32">
+    </label>
+    <label>Birthday date
+      <input id="cfg-date" type="date">
+    </label>
+    <div class="cfg-row">
+      <button class="btn primary" id="cfg-apply" type="button">Apply</button>
+      <button class="btn outline" id="cfg-copy" type="button">Copy share link</button>
+    </div>
+    <p id="cfg-status" class="cfg-status" aria-live="polite"></p>
+  </aside>
+
+  <nav class="nav" id="nav">
+    <a href="#top" class="brand"><span class="brand-mark">&#9968;</span> <span class="js-name">Dr. Aarohi</span></a>
+    <div class="links">
+      <a href="#wishes">Wishes</a>
+      <a href="#wish">Make a wish</a>
+      <a href="#about">Her story</a>
+      <a href="#gallery">Moments</a>
+      <a href="#ladder">Peaks</a>
+      <a href="#tips">Trail Rx</a>
+      <a href="#quiz-section">Quiz</a>
+      <a href="#notes">Notes</a>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero" id="top">
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+    <div class="sun" aria-hidden="true"></div>
+
+    <svg class="ridge far" id="r-far" viewBox="0 0 1440 600" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="gFar" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#f3a9a0"/><stop offset=".55" stop-color="#9a5f9c"/><stop offset="1" stop-color="#5a3f86"/>
+        </linearGradient>
+        <linearGradient id="gMid" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#7d5aa6"/><stop offset=".5" stop-color="#46397f"/><stop offset="1" stop-color="#2a2565"/>
+        </linearGradient>
+        <linearGradient id="gSnowHero" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#fff3df"/><stop offset="1" stop-color="#f3c6c0"/>
+        </linearGradient>
+        <linearGradient id="gPine" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#22305a"/><stop offset="1" stop-color="#11173a"/>
+        </linearGradient>
+      </defs>
+      <path fill="url(#gFar)" opacity=".92" d="M0 600 V340 L90 280 L170 330 L260 230 L330 300 L420 200 L500 280 L580 240 L660 310 L760 210 L850 290 L940 250 L1030 320 L1130 220 L1230 300 L1330 260 L1440 320 V600 Z"/>
+    </svg>
+
+    <svg class="ridge mid" id="r-mid" viewBox="0 0 1440 600" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <path fill="url(#gMid)" d="M0 600 V400 L120 330 L210 380 L330 250 L430 340 L520 300 L640 400 L760 270 L880 380 L980 320 L1100 410 L1220 300 L1330 370 L1440 330 V600 Z"/>
+      <g fill="url(#gSnowHero)">
+        <path d="M330 250 L300 283 L315 277 L325 295 L338 280 L347 290 L355 273 Z"/>
+        <path d="M520 300 L495 311 L508 308 L515 322 L527 309 L545 321 Z"/>
+        <path d="M760 270 L730 303 L745 297 L755 315 L768 299 L777 309 L788 296 Z"/>
+        <path d="M980 320 L955 335 L968 331 L977 345 L988 332 L1005 339 Z"/>
+        <path d="M1220 300 L1190 328 L1205 323 L1215 340 L1228 324 L1238 334 L1255 322 Z"/>
+      </g>
+    </svg>
+
+    <svg class="ridge near" id="r-near" viewBox="0 0 1440 600" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <path id="pines" fill="url(#gPine)" d=""/>
+    </svg>
+
+    <svg class="flags" id="flags" aria-hidden="true"></svg>
+
+    <div class="hero-text" id="hero-text">
+      <p class="eyebrow">A birthday expedition</p>
+      <h1>
+        <span class="hb">Happy Birthday,</span>
+        <span class="name js-name-big">Dr. Aarohi</span>
+      </h1>
+      <p class="role js-role">Pediatrician &middot; Mountain Soul</p>
+      <p class="sub" id="typewriter" aria-live="polite"></p>
+      <div class="hero-meta">
+        <span class="age-pill">Turning <b id="age">?</b></span>
+        <span class="countdown" id="countdown" aria-live="off"></span>
+      </div>
+      <div class="hero-actions">
+        <a href="#wishes" class="btn primary">Read the wishes</a>
+        <button class="btn glass" id="lantern-btn" type="button">Release lanterns</button>
+        <button class="btn glass" id="confetti-btn" type="button">Confetti!</button>
+      </div>
+    </div>
+    <a href="#wishes" class="scroll-cue" aria-label="Scroll down">&#8595;</a>
+  </header>
+
+  <main>
+    <!-- ============ WISHES ============ -->
+    <section id="wishes" class="sec cream reveal">
+      <div class="wrap">
+        <p class="kicker">from everyone who loves you</p>
+        <h2>Birthday wishes for <span class="js-name">Dr. Aarohi</span></h2>
+        <div class="tabs" id="wish-tabs" role="tablist">
+          <button class="tab active" data-tone="all" role="tab" type="button">All</button>
+          <button class="tab" data-tone="funny" role="tab" type="button">Funny</button>
+          <button class="tab" data-tone="heartfelt" role="tab" type="button">Heartfelt</button>
+          <button class="tab" data-tone="mountain" role="tab" type="button">Mountain</button>
+        </div>
+        <figure class="wish-card" id="wish-card" aria-live="polite">
+          <span class="qmark" aria-hidden="true">&ldquo;</span>
+          <blockquote id="wish-quote"></blockquote>
+          <figcaption id="wish-by"></figcaption>
+        </figure>
+        <div class="row">
+          <button class="btn outline" id="wish-prev" type="button" aria-label="Previous wish">&#8592; Prev</button>
+          <button class="btn primary" id="wish-random" type="button">Surprise me</button>
+          <button class="btn outline" id="wish-next" type="button" aria-label="Next wish">Next &#8594;</button>
+        </div>
+        <div class="row small">
+          <button class="link-btn" id="wish-copy" type="button">Copy this wish</button>
+          <span id="wish-count" class="count"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MAKE A WISH ============ -->
+    <section id="wish" class="sec night stars reveal">
+      <div class="wrap">
+        <p class="kicker light">your turn</p>
+        <h2>Make a wish</h2>
+        <p class="lead">Close your eyes, think of something wonderful, then blow out the candle.</p>
+        <div class="cake-stage">
+          <button class="cake" id="cake" type="button" aria-label="Blow out the candle">
+            <span class="candle"><span class="flame" id="flame"></span><span class="smoke"></span></span>
+            <span class="tier t1"></span>
+            <span class="tier t2"></span>
+            <span class="plate"></span>
+          </button>
+        </div>
+        <p id="cake-msg" class="cake-msg" aria-live="polite">Tap the candle (or press the button) to blow it out.</p>
+        <div class="row">
+          <button class="btn primary" id="blow" type="button">Blow out the candle</button>
+          <button class="btn glass" id="relight" type="button">Relight</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="about" class="sec paper reveal">
+      <div class="wrap">
+        <div class="about-grid">
+          <div>
+            <p class="kicker left">a little about her</p>
+            <h2 class="left">Two callings, one heartbeat</h2>
+            <div id="about-text" class="about-text"></div>
+          </div>
+          <div class="steth" aria-hidden="true">
+            <svg viewBox="0 0 200 120" role="img" aria-label="Heartbeat line over a mountain">
+              <path d="M0 100 L40 100 L60 40 L85 85 L105 25 L135 100 L200 100" class="mtn-line"/>
+              <path d="M0 70 L30 70 L45 70 L55 45 L65 95 L78 55 L88 70 L200 70" class="beat-line"/>
+            </svg>
+          </div>
+        </div>
+        <div class="stats" id="stats"></div>
+      </div>
+    </section>
+
+    <!-- ============ GALLERY ============ -->
+    <section id="gallery" class="sec cream reveal">
+      <div class="wrap">
+        <p class="kicker">memories</p>
+        <h2>My mountain moments</h2>
+        <p class="lead">Three frames, three stories. Click a photo to view it larger, or an empty frame to add one.</p>
+        <div class="gallery" id="gallery-grid"></div>
+      </div>
+    </section>
+
+    <!-- ============ LADDER ============ -->
+    <section id="ladder" class="sec sky reveal">
+      <div class="wrap">
+        <p class="kicker">how high can you go</p>
+        <h2>Climb the altitude ladder</h2>
+        <p class="lead">Tap a peak to see where it stands. The mountain grows with every height.</p>
+        <div class="ladder-wrap">
+          <div class="ladder-list" id="ladder-list" role="listbox" aria-label="Peaks and passes"></div>
+          <div class="ladder-view">
+            <svg viewBox="0 0 300 260" id="ladder-svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="gSnow" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#cfe1f3"/>
+                </linearGradient>
+                <linearGradient id="gRock" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#6e86a8"/><stop offset="1" stop-color="#2c3f5e"/>
+                </linearGradient>
+              </defs>
+              <path id="svg-mtn" fill="url(#gRock)" d=""/>
+              <path id="svg-snow" fill="url(#gSnow)" d=""/>
+              <line id="svg-line" x1="10" x2="290" y1="230" y2="230" stroke="#f6b93b" stroke-dasharray="5 5"/>
+            </svg>
+            <div class="ladder-info" aria-live="polite">
+              <h3 id="peak-name"></h3>
+              <p class="peak-h"><span id="peak-m"></span> m</p>
+              <p class="peak-meta" id="peak-meta"></p>
+              <p id="peak-note"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TIPS ============ -->
+    <section id="tips" class="sec paper reveal">
+      <div class="wrap">
+        <p class="kicker">doctor's orders</p>
+        <h2>Trail prescriptions</h2>
+        <p class="lead">A pediatrician's quick notes for families heading uphill. Tap a card to flip it.</p>
+        <p class="disclaimer">General information only. It is not a substitute for personal medical advice. Always consult your own doctor before high-altitude travel with children.</p>
+        <div class="cards" id="tip-cards"></div>
+      </div>
+    </section>
+
+    <!-- ============ QUIZ ============ -->
+    <section id="quiz-section" class="sec night reveal">
+      <div class="wrap">
+        <p class="kicker light">a birthday challenge</p>
+        <h2>Himalaya ranges quiz</h2>
+        <p class="lead">Himachal, Uttarakhand and beyond: how well do you know the high north?</p>
+        <div id="quiz" class="quiz"></div>
+      </div>
+    </section>
+
+    <!-- ============ NOTES ============ -->
+    <section id="notes" class="sec cream reveal">
+      <div class="wrap">
+        <p class="kicker">leave your mark</p>
+        <h2>Leave a note on the cairn</h2>
+        <p class="lead">Add a small stone and a kind word. (Saved only in your own browser.)</p>
+        <form id="note-form" class="note-form">
+          <input id="note-from" type="text" maxlength="30" placeholder="Your name" required>
+          <textarea id="note-text" maxlength="200" rows="3" placeholder="Write a birthday note..." required></textarea>
+          <button class="btn primary" type="submit">Place a stone</button>
+        </form>
+        <div id="note-list" class="note-list"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="foot-script">Happy Birthday, <span class="js-name">Dr. Aarohi</span>!</p>
+    <p>Made with lots of love,Italian Coffee and big mountains.</p>
+    <p class="muted">Quiz and trail notes are for fun and general awareness.</p>
+  </footer>
+
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lb-close" id="lb-close" aria-label="Close" type="button">&times;</button>
+    <figure><img id="lb-img" alt=""><figcaption id="lb-cap"></figcaption></figure>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
